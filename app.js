@@ -1,5 +1,7 @@
 const block = document.getElementById('blk')
 const container = document.getElementById('container')
+const timerContainer = document.getElementById('timer-container')
+
 
 draw(1000)
 
@@ -14,14 +16,24 @@ const blocks = document.querySelectorAll('.blk')
 
 for (var item of blocks){
     item.addEventListener('mouseover', function(event){
-        event.target.style.border = '3px solid red'
+        event.target.style.border = '3px solid white'
         event.target.style["boxShadow"] = " 1px 1px 96px 51px rgba(255,255,255,0.75)"
     })
     item.addEventListener('mouseout', function(event){
-        event.target.style.border = '3px solid rgba(160, 160, 0, 0.088)'
+        event.target.style.border = '3px solid rgb(26, 26, 26)'
         event.target.style["boxShadow"] = "none"
     })
 }
+
+renderTime()
+function renderTime()
+{
+    now = new Date()
+    const divider = now.getSeconds()%2 === 0 ? ' ' : ':'
+    timerContainer.innerHTML = now.getHours() + divider + now.getMinutes()
+}
+const mainTimer = setInterval(renderTime, 1000)
+
 
 
 
