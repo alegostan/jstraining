@@ -4,16 +4,50 @@ const timer = document.getElementById("timer");
 
 const timeBtn = document.getElementById("btn-time");
 const dateBtn = document.getElementById("btn-date");
-//const stopBtn = document.getElementById("btn-stopwatch");
+const startBtn = document.getElementsByClassName("stopwatchBtn")[0];
+const stopBtn = document.getElementsByClassName("stopwatchBtn")[1];
 
 timerType = "time";
+var startTime = 0;
+var isStopped = true;
+
+var mainTimer = setInterval(renderTime, 1000);
+const stopwatchTimer = undefined;
 
 timeBtn.addEventListener("click", () => {
     timerType = "time";
+    clearInterval(mainTimer);
+    mainTimer = setInterval(renderTime, 1000);
     renderTime();
 });
 dateBtn.addEventListener("click", () => {
     timerType = "date";
+    renderTime();
+});
+startBtn.addEventListener("click", () => {
+    if (!isStopped) {
+        return;
+    }
+    timerType = "stop";
+    clearInterval(mainTimer);
+    mainTimer = setInterval(renderTime, 10);
+    startTime = new Date().getTime();
+    isStopped = false;
+    renderTime();
+});
+stopBtn.addEventListener("click", () => {
+    if (isStopped) {
+        isStopped = false;
+        clearInterval(mainTimer);
+
+        stopBtn.style.background = "inherit";
+        mainTimer = setInterval(renderTime, 10);
+    } else {
+        clearInterval(mainTimer);
+        stopBtn.style.background = "red";
+        isStopped = true;
+    }
+    console.log("stop");
     renderTime();
 });
 
@@ -72,6 +106,23 @@ function renderTime() {
             timer.style["font-size"] = "50px";
             return;
         }
+        case "stop": {
+            timer.innerHTML = getEllapasedTime();
+            return;
+        }
     }
 }
-const mainTimer = setInterval(renderTime, 1000);
+
+function getEllapasedTime() {
+    var now = new Date();
+    return msToTime(now.getTime() - startTime);
+}
+function msToTime(s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+
+    return secs + "." + (ms < 10 ? "0" : "") + (ms < 100 ? "0" : "") + ms;
+}
