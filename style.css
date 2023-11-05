@@ -102,7 +102,10 @@ body {
         width: 90%;
         font-size: 60px;
     }
-    #btn-container input {
+    #btn-container .timerBtn {
         font-size: 15px;
+    }
+    #stopwatch .stopwatchBtn {
+        font-size: 10px;
     }
 }
