@@ -30,7 +30,7 @@ function renderTime()
 {
     now = new Date()
     const divider = now.getSeconds()%2 === 0 ? ' ' : ':'
-    timerContainer.innerHTML = now.getHours() + divider + now.getMinutes()
+    timerContainer.innerHTML = now.getHours() + divider + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes()
 }
 const mainTimer = setInterval(renderTime, 1000)
 
