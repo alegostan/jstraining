@@ -28,8 +28,8 @@ body{
     margin-top: 25vh;
     background-color:rgb(61, 61, 61);
     color: white;
-    width: 50%;
-    height: 50%;
+    width: 50vw;
+    height: 50vh;
     border-radius: 40px;
     font-family: 'Source Code Pro', monospace;
     font-size: 100px;
