@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    display: flex;
+    position: fixed;
+    flex-wrap: wrap;
+    background-color: #000;
+}
+
+.blk{
+    width: 5vh;
+    height: 5vh;
+    border: 3px solid rgba(160, 160, 0, 0.088);
+    box-sizing:border-box;
+    transition-duration: 10s;
+    transition-timing-function:cubic-bezier(0,1.09,0,-0.01);
+}
+.blk:hover{
+    border-color:blueviolet;
+    box-shadow: 2px 1px 96px 51px rgba(255,255,255,0.75);
+}
