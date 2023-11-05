@@ -9,7 +9,42 @@
     <body>
         <div id="container">
             <div class="blk"></div>
-            <div id="timer-container"></div>
+            <div id="main-container">
+                <div id="timer-container">
+                    <div id="timer"></div>
+                </div>
+                <div id="btn-container">
+                    <input
+                        class="timerBtn"
+                        id="btn-time"
+                        type="button"
+                        value="Time"
+                    />
+                    <input
+                        class="timerBtn"
+                        id="btn-date"
+                        type="button"
+                        value="Date"
+                    />
+                    <div id="stopwatch">
+                        <input
+                            class="stopwatchBtn"
+                            type="button"
+                            value="start"
+                        />
+                        <input
+                            class="stopwatchBtn"
+                            type="button"
+                            value="stop"
+                        />
+                        <input
+                            class="stopwatchBtn"
+                            type="button"
+                            value="reset"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="app.js"></script>
     </body>
