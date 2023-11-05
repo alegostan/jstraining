@@ -19,6 +19,9 @@ for (var item of blocks){
     item.addEventListener('mouseout', function(event){
         event.target.style.border = '3px solid rgba(160, 160, 0, 0.088)'
     })
+    item.addEventListener('touchstart', function(event){
+        event.target.style.border = '3px solid rgba(160, 160, 0, 0.088)'
+    })
 }
 
 
