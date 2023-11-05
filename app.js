@@ -21,7 +21,6 @@ for (var item of blocks){
         event.target.style.border = '3px solid rgba(160, 160, 0, 0.088)'
         event.target.style["boxShadow"] = "none"
     })
-
 }
 
 
